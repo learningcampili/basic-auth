@@ -4,7 +4,7 @@ import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 
 import { auth } from "@/auth";
-import Navbar1 from "@/components/navbar1";
+import Navbar from "@/components/navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -34,7 +34,7 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SessionProvider>
-          <Navbar1 session={session} />
+          <Navbar session={session} />
           {children}
         </SessionProvider>
       </body>

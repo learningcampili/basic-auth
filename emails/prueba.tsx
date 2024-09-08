@@ -15,13 +15,13 @@ import {
 } from "@react-email/components";
 import * as React from "react";
 
-interface ConfirmTemplateProps {
+interface PruebaTemplateProps {
   url: string;
   name: string;
   company: string;
 }
 
-const ConfirmTemplateMail = ({ url, name, company }: ConfirmTemplateProps) => {
+const PruebaTemplateMail = ({ url, name, company }: PruebaTemplateProps) => {
   const currentYear = new Date().getFullYear();
   return (
     <Html>
@@ -39,7 +39,7 @@ const ConfirmTemplateMail = ({ url, name, company }: ConfirmTemplateProps) => {
       </Head>
       <Preview>Cracias por registrarte</Preview>
       <Tailwind>
-        <Body className="bg-[url('https://res.cloudinary.com/dwdq9al4v/image/upload/v1725818189/pets/nurouslaqtk7stkn56n7.jpg')] bg-cover bg-center  px-5 py-3  flex justify-center items-center min-h-screen  ">
+        <Body className="bg-[url('https://res.cloudinary.com/dwdq9al4v/image/upload/v1725818189/pets/nurouslaqtk7stkn56n7.jpg')] bg-cover bg-center px-5 py-3  flex justify-center items-center min-h-screen  ">
           <Container className="pt-5 pb-2 bg-slate-800 text-white text-center rounded-lg">
             <Heading className="text-lg font-bold text-center">
               {`¡ Bienvenido ${name || "Usuario"} !`}
@@ -82,4 +82,4 @@ const ConfirmTemplateMail = ({ url, name, company }: ConfirmTemplateProps) => {
   );
 };
 
-export default ConfirmTemplateMail;
+export default PruebaTemplateMail;
