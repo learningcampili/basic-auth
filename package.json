@@ -6,21 +6,37 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "mail:dev": "email dev"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.4.2",
+    "@hookform/resolvers": "^3.9.0",
+    "@prisma/client": "^5.19.1",
+    "@react-email/components": "0.0.25",
+    "@react-email/render": "1.0.1",
+    "bcryptjs": "^2.4.3",
+    "nanoid": "^5.0.7",
+    "next": "14.2.8",
+    "next-auth": "^5.0.0-beta.20",
+    "nodemailer": "^6.9.15",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.8"
+    "react-hook-form": "^7.53.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.15",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
     "eslint": "^8",
-    "eslint-config-next": "14.2.8"
+    "eslint-config-next": "14.2.8",
+    "postcss": "^8",
+    "prisma": "^5.19.1",
+    "react-email": "3.0.1",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }

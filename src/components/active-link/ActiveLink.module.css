@@ -1,0 +1,7 @@
+.link {
+  @apply border-transparent border-spacing-4 hover:border-b-4 border-blue-300 pb-2 hover:text-slate-400 mr-10 transition-all;
+}
+
+.active-link {
+  @apply text-blue-300 font-semibold;
+}
