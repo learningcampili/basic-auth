@@ -39,8 +39,8 @@ const ConfirmTemplateMail = ({ url, name, company }: ConfirmTemplateProps) => {
       </Head>
       <Preview>Cracias por registrarte</Preview>
       <Tailwind>
-        <Body className="bg-[url('https://res.cloudinary.com/dwdq9al4v/image/upload/v1725818189/pets/nurouslaqtk7stkn56n7.jpg')] bg-cover bg-center  px-5 py-3  flex justify-center items-center min-h-screen  ">
-          <Container className="pt-5 pb-2 bg-slate-800 text-white text-center rounded-lg">
+        <Body className="bg-[url('https://res.cloudinary.com/dwdq9al4v/image/upload/v1725818189/pets/nurouslaqtk7stkn56n7.jpg')] bg-cover bg-center  px-5 pt-3  flex justify-center items-center min-h-screen  ">
+          <Container className="pt-5 pb-0 bg-slate-100 text-slate-800 text-center rounded-lg">
             <Heading className="text-lg font-bold text-center">
               {`¡ Bienvenido ${name || "Usuario"} !`}
             </Heading>
