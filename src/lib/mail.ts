@@ -39,17 +39,3 @@ export const sendMail = async ({ to, subject, html }: SendMailProps) => {
     return;
   }
 };
-
-// export const compileWelcomeTemplate = (
-//   name: string,
-//   url: string,
-//   companyName: string
-// ) => {
-//   const template = handlebars.compile(welcomeTemplate);
-//   const htmlBody = template({
-//     name: name,
-//     confirmationLink: url,
-//     companyName: companyName,
-//   });
-//   return htmlBody;
-// };

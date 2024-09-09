@@ -9,6 +9,7 @@ import Link from "next/link";
 import { loginSchema } from "@/lib/zod";
 import { loginAction } from "@/actions/auth-actions";
 import GoogleSignInButton from "./GoogleSignInButton";
+import { redirect } from "next/navigation";
 
 export const FormLogin = () => {
   const [error, setError] = useState<string | null>(null);
@@ -30,6 +31,9 @@ export const FormLogin = () => {
 
       if (data?.error) {
         setError(data.error || "An unexpected error occurred.");
+      }
+      if (data?.success) {
+        redirect("/profile");
       }
       form.reset();
     });

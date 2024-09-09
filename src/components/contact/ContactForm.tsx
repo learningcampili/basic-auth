@@ -8,10 +8,6 @@ import { useForm } from "react-hook-form";
 import { contactSchema } from "@/lib/zod";
 import { contactAction } from "@/actions/contact-actions";
 
-// Define the contact form schema
-
-// Mock action for form submission
-
 export default function ContactForm() {
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
@@ -43,7 +39,6 @@ export default function ContactForm() {
 
   return (
     <div className="w-full border border-slate-700 shadow-lg rounded p-5 sm:max-w-[400px] mx-auto bg-slate-800 text-white">
-      {/* <div className="w-full border border-red-700 shadow-lg rounded p-5 bg-slate-800 text-white"> */}
       <h1 className="text-2xl font-bold text-center mb-5">Contactenos</h1>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
         <div>
@@ -120,7 +115,6 @@ export default function ContactForm() {
           {isPending ? "Sending..." : "Send Message"}
         </button>
       </form>
-      {/* </div> */}
     </div>
   );
 }

@@ -6,7 +6,7 @@ const AuthLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div className="flex justify-center items-center min-h-[calc(100vh-64px-80px)] w-full">
+    <div className="flex justify-center items-center min-h-custom w-full">
       {children}
     </div>
   );

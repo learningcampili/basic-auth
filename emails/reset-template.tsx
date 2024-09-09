@@ -44,29 +44,29 @@ export default function ResetTemplate({
       </Head>
       <Preview>Restablecimiento de contraseña</Preview>
       <Tailwind>
-        <Body className="bg-[url('https://res.cloudinary.com/dwdq9al4v/image/upload/v1725818189/pets/nurouslaqtk7stkn56n7.jpg')] bg-cover bg-center  px-5 pt-3  flex justify-center items-center min-h-screen  ">
-          <Container className="pt-5 pb-0 bg-slate-100 text-slate-800 text-center rounded-lg">
+        <Body className="bg-[url('https://res.cloudinary.com/dwdq9al4v/image/upload/v1725818189/pets/nurouslaqtk7stkn56n7.jpg')] bg-cover bg-center  px-5 pt-10  flex justify-center items-center min-h-[75vh]  ">
+          <Container className="pt-5 pb-0 bg-indigo-50 text-slate-800 text-center rounded-lg h-full">
             <Heading className="text-lg font-bold text-center">
               Restablecimiento de contraseña
             </Heading>
             <Img
-              src="https://cdn-icons-png.flaticon.com/512/4144/4144781.png"
+              src="https://res.cloudinary.com/dwdq9al4v/image/upload/v1725834088/pets/rlkuvpeksrztdatqg9xh.png"
               alt="Email image"
-              width={150}
-              height={150}
+              width={250}
+              height={76}
               className="mt-10 mx-auto"
             />
             <Text className="mt-5 text-center px-5 text-md">
               Hola, {name || "Usuario"}
-              <br />
-              <br />
+            </Text>
+            <Text>
               Recibimos una solicitud para restablecer la contraseña de tu
-              cuenta en
-              <span className="text-blue-500 ml-1">
-                {company || "Petfinder"}
-              </span>{" "}
-              <br />
-              <br />
+              cuenta en:
+            </Text>
+            <Text className="text-blue-500 my-5 px-5 font-bold text-xl">
+              {company || "SoS Mascotas"}
+            </Text>
+            <Text className="p-2 text-md px-5">
               Para restablecer tu contraseña, haz clic en el siguiente botón:
             </Text>
             <Button
@@ -75,14 +75,14 @@ export default function ResetTemplate({
             >
               Restablecer Contraseña
             </Button>
-            <Text className="p-2 text-md">
+            <Text className="p-2 text-md px-5">
               Si no solicitaste un cambio de contraseña, por favor ignora este
               correo electrónico.
             </Text>
-            <Hr className="my-2 w-[90%]" />
-            <Section className="bg-gray-800  text-center text-white">
+            {/* <Hr className="my-2 w-[90%]" /> */}
+            <Section className="bg-gray-800  text-center text-white rounded-b-lg">
               <Text className="text-xs">
-                {company || "Petfinder"} © {currentYear} All rights reserved.
+                © {currentYear} - Todos lods derechos reservados.
               </Text>
             </Section>
           </Container>

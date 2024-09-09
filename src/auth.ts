@@ -77,14 +77,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             ConfirmTemplateMail({
               url: `http://localhost:3000/api/auth/verify-email?token=${token}`,
               name: user.name!,
-              company: "PetFinder",
+              company: "SoS Mascotas",
             })
           );
 
           await sendMail({
             to: user.email,
-            name: "Learning Campili",
-            subject: "Confirm your email",
+            name: user.email,
+            subject: "Confirma tu registro en SoS Mascotas",
             html: emailHtml,
           });
 

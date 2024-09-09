@@ -5,7 +5,6 @@ import {
   Font,
   Head,
   Heading,
-  Hr,
   Html,
   Img,
   Preview,
@@ -15,17 +14,22 @@ import {
 } from "@react-email/components";
 import * as React from "react";
 
-interface PruebaTemplateProps {
+interface ResetTemplateProps {
   url: string;
   name: string;
   company: string;
 }
 
-const PruebaTemplateMail = ({ url, name, company }: PruebaTemplateProps) => {
+export default function ResetTemplate({
+  url,
+  name,
+  company,
+}: ResetTemplateProps) {
   const currentYear = new Date().getFullYear();
   return (
     <Html>
       <Head>
+        <title>{`Restablecimiento de contraseña - ${company}`}</title>
         <Font
           fontFamily="Roboto"
           fallbackFontFamily="Verdana"
@@ -37,24 +41,28 @@ const PruebaTemplateMail = ({ url, name, company }: PruebaTemplateProps) => {
           fontStyle="normal"
         />
       </Head>
-      <Preview>Cracias por registrarte</Preview>
+      <Preview>Restablecimiento de contraseña</Preview>
       <Tailwind>
-        <Body className="bg-[url('https://res.cloudinary.com/dwdq9al4v/image/upload/v1725818189/pets/nurouslaqtk7stkn56n7.jpg')] bg-cover bg-center px-5 pt-3  flex justify-center items-center min-h-screen  ">
-          <Container className="pt-5 pb-0 bg-slate-100 text-slate-800 text-center rounded-lg">
+        <Body className="bg-[url('https://res.cloudinary.com/dwdq9al4v/image/upload/v1725818189/pets/nurouslaqtk7stkn56n7.jpg')] bg-cover bg-center  px-5 pt-10  flex justify-center items-center min-h-[75vh]  ">
+          <Container className="pt-5 pb-0 bg-indigo-50 text-slate-800 text-center rounded-lg h-full">
             <Heading className="text-lg font-bold text-center">
               {`¡ Bienvenido ${name || "Usuario"} !`}
             </Heading>
             <Img
-              src="https://cdn-icons-png.flaticon.com/512/4144/4144781.png"
+              src="https://res.cloudinary.com/dwdq9al4v/image/upload/v1725834088/pets/rlkuvpeksrztdatqg9xh.png"
               alt="Email image"
-              width={120}
-              height={120}
+              width={250}
+              height={76}
               className="mt-10 mx-auto"
             />
-            <Text className="mt-5 text-center p-2 text-md">
-              {`Gracias, ${name || "Usuario"}, por registrarte en`}
-              <span className="text-blue-500 ml-1">{company}</span> <br />
-              <br />
+            <Text className="mt-5 text-center px-5 text-md">
+              {`Gracias, ${name || "Usuario"}, por registrarte en: `}
+            </Text>
+
+            <Text className="text-blue-500 my-5 px-5 font-bold text-xl">
+              {company || "SoS Mascotas"}
+            </Text>
+            <Text className="p-2 text-md px-5">
               Por favor, confirma tu cuenta haciendo clic en el siguiente botón:
             </Text>
             <Button
@@ -63,16 +71,14 @@ const PruebaTemplateMail = ({ url, name, company }: PruebaTemplateProps) => {
             >
               Confirmar cuenta
             </Button>
-            <Text className="p-2 text-md">
-              Si no solicitaste esta cuenta, por favor ignora este correo
-              electrónico.
+            <Text className="p-2 text-md px-5">
+              Si no solicitaste el registro de esta cuenta, por favor ignora
+              este correo electrónico.
             </Text>
-            {/* <Hr className="my-2 w-[90%]" /> */}
-            <Section className="bg-slate-800  text-center text-white">
+
+            <Section className="bg-gray-800  text-center text-white rounded-b-lg">
               <Text className="text-xs">
-                {`Copyright © ${currentYear} ${
-                  company || "Petfinder"
-                }. Todos los derechos reservados.`}
+                © {currentYear} - Todos los derechos reservados.
               </Text>
             </Section>
           </Container>
@@ -80,6 +86,4 @@ const PruebaTemplateMail = ({ url, name, company }: PruebaTemplateProps) => {
       </Tailwind>
     </Html>
   );
-};
-
-export default PruebaTemplateMail;
+}

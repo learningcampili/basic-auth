@@ -1,21 +1,26 @@
-// components/Navbar.tsx
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
 import { Session } from "next-auth";
-import { signIn, signOut } from "next-auth/react"; // Import the Session type from next-auth
+import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import { ActiveLink } from "./active-link/ActiveLink";
 
 interface NavbarProps {
-  session: Session | null; // Define the type of the session prop
+  session: Session | null;
 }
 
 export default function Navbar({ session }: NavbarProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  console.log(session);
-  // Check authentication state
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleResize = useCallback(() => {
+    if (window.innerWidth >= 768) {
+      setIsOpen(false);
+    }
+  }, []);
+
   useEffect(() => {
     if (session) {
       setIsAuthenticated(true);
@@ -28,13 +33,6 @@ export default function Navbar({ session }: NavbarProps) {
       setIsAdmin(false);
     }
   }, [session]);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleResize = useCallback(() => {
-    if (window.innerWidth >= 768) {
-      setIsOpen(false);
-    }
-  }, []);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
@@ -46,10 +44,6 @@ export default function Navbar({ session }: NavbarProps) {
   const navItems = [
     { path: "/about", text: "About" },
     { path: "/contact", text: "Contact" },
-    // { path: "/profile", text: "Profile" },
-    // { path: "/admin", text: "Admin" },
-    // { path: "/login", text: "Login" },
-    // { path: "/logout", text: "Logout" },
   ];
 
   return (
@@ -133,8 +127,7 @@ export default function Navbar({ session }: NavbarProps) {
             )}
             {!isAuthenticated && (
               <li className="self-end block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                <button onClick={() => signIn()}>Sign In</button>{" "}
-                {/* SignIn Button */}
+                <button onClick={() => signIn()}>Sign In</button>
               </li>
             )}
           </ul>

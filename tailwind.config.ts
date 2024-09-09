@@ -12,6 +12,9 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      minHeight: {
+        custom: "calc(100vh - 72px)", // Aquí defines el valor de min-height
+      },
     },
   },
   plugins: [],

@@ -33,14 +33,21 @@ export const loginAction = async (values: z.infer<typeof loginSchema>) => {
     return { error: "Credenciales invalidas" };
   }
 
+  if (!existingUser.emailVerified) {
+    return { error: "Cuenta no verificada revisa tu correo" };
+  }
+
   try {
     await signIn("credentials", {
       email,
       password,
-      redirectTo: "/profile",
+      redirect: false,
     });
 
-    //revalidatePath("/");
+    // eliminar el token de reseteo de contraseña
+    await prisma.forgotenToken.deleteMany({
+      where: { identifier: email },
+    });
 
     return { success: true };
   } catch (error) {
@@ -133,7 +140,7 @@ export const registerAction = async (
       ConfirmTemplateMail({
         url: `http://localhost:3000/api/auth/verify-email?token=${token}`,
         name: userCreated.name!,
-        company: "PetFinder",
+        company: "SoS Mascotas",
       })
     );
 
@@ -187,7 +194,7 @@ export const forgotenAction = async (
     ResetTemplate({
       url: `http://localhost:3000/reset-password?token=${token}`,
       name: existingUser.name!,
-      company: "PetFinder",
+      company: "Sos Mascotas",
     })
   );
 
