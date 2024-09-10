@@ -1,8 +1,9 @@
 import { signIn } from "next-auth/react";
 
 export default function GoogleSignInButton() {
+  const BASE_URL = process.env.BASE_URL || "http://localhost:3000";
   const handleGoogleSignIn = () => {
-    signIn("google", { callbackUrl: "http://localhost:3000/profile" }); // Sign in with Google and redirect to dashboard
+    signIn("google", { callbackUrl: `${BASE_URL}/profile` }); // Sign in with Google and redirect to dashboard
   };
   return (
     <button

@@ -11,7 +11,7 @@ import { auth } from "@/auth";
 import { forgotenSchema, loginSchema, registerSchema } from "@/lib/zod";
 import { getUserByEmail } from "@/lib/user";
 import { prisma } from "@/lib/prisma";
-import { sleep } from "@/lib/utils";
+
 import { sendMail } from "@/lib/mail";
 import { nanoid } from "nanoid";
 import { render } from "@react-email/render";
@@ -70,6 +70,7 @@ export const registerAction = async (
   values: z.infer<typeof registerSchema>
 ) => {
   try {
+    const BASE_URL = process.env.BASE_URL || "http://localhost:3000";
     const { data, success } = registerSchema.safeParse(values);
     if (!success) {
       return {
@@ -138,7 +139,7 @@ export const registerAction = async (
 
     const emailHtml = await render(
       ConfirmTemplateMail({
-        url: `http://localhost:3000/api/auth/verify-email?token=${token}`,
+        url: `${BASE_URL}/api/auth/verify-email?token=${token}`,
         name: userCreated.name!,
         company: "SoS Mascotas",
       })
@@ -172,6 +173,8 @@ export const forgotenAction = async (
     return { error: "Invalid fields!" };
   }
 
+  const BASE_URL = process.env.BASE_URL || "http://localhost:3000";
+
   const { email } = validatedFields.data;
 
   const existingUser = await getUserByEmail(email);
@@ -192,7 +195,7 @@ export const forgotenAction = async (
 
   const emailHtml = await render(
     ResetTemplate({
-      url: `http://localhost:3000/reset-password?token=${token}`,
+      url: `${BASE_URL}/reset-password?token=${token}`,
       name: existingUser.name!,
       company: "Sos Mascotas",
     })

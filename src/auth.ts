@@ -28,6 +28,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           throw new Error("Credenciales inválidas");
         }
 
+        const BASE_URL = process.env.BASE_URL || "http://localhost:3000";
         const { email, password } = validatedFields.data;
 
         const user = await getUserByEmail(email);
@@ -75,7 +76,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
           const emailHtml = await render(
             ConfirmTemplateMail({
-              url: `http://localhost:3000/api/auth/verify-email?token=${token}`,
+              url: `${BASE_URL}/api/auth/verify-email?token=${token}`,
               name: user.name!,
               company: "SoS Mascotas",
             })
