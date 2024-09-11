@@ -1,5 +1,5 @@
 import { getUserServer } from "@/actions/auth-actions";
-import { redirect } from "next/navigation";
+
 import React from "react";
 
 const AdminPage = async () => {

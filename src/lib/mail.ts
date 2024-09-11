@@ -19,7 +19,7 @@ export const sendMail = async ({ to, subject, html }: SendMailProps) => {
   });
 
   try {
-    const testResult = await transport.verify();
+    await transport.verify();
   } catch (error) {
     console.error(error);
     return;
@@ -33,7 +33,7 @@ export const sendMail = async ({ to, subject, html }: SendMailProps) => {
   };
 
   try {
-    const sendResult = await transport.sendMail(options);
+    await transport.sendMail(options);
   } catch (error) {
     console.error(error);
     return;

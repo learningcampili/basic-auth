@@ -6,6 +6,7 @@ export default async function UserAvatar() {
   if (!session?.user) return null;
 
   return (
-    <div>{session && <img src={session?.user?.image} alt="user avatar" />}</div>
+    // <div>{session && <img src={session?.user?.image} alt="user avatar" />}</div>
+    <h1>{session?.user?.name}</h1>
   );
 }
