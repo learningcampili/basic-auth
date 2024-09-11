@@ -41,15 +41,15 @@ export const loginAction = async (values: z.infer<typeof loginSchema>) => {
     await signIn("credentials", {
       email,
       password,
-      redirect: false,
+      redirectTo: "/profile",
     });
 
-    // eliminar el token de reseteo de contraseña
-    await prisma.forgotenToken.deleteMany({
-      where: { identifier: email },
-    });
+    // // eliminar el token de reseteo de contraseña
+    // await prisma.forgotenToken.deleteMany({
+    //   where: { identifier: email },
+    // });
 
-    return { success: true };
+    //return { success: true };
   } catch (error) {
     console.error(error);
     if (error instanceof AuthError) {

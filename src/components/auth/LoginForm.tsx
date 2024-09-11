@@ -32,9 +32,9 @@ export const FormLogin = () => {
       if (data?.error) {
         setError(data.error || "An unexpected error occurred.");
       }
-      if (data?.success) {
-        redirect("/profile");
-      }
+      // if (data?.success) {
+      //   redirect("/profile");
+      // }
       form.reset();
     });
   }
